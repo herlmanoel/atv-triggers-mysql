@@ -16,5 +16,5 @@ DELIMITER $$
 CREATE TRIGGER update_ItensVenda AFTER UPDATE ON ItensVenda
     FOR EACH ROW
         BEGIN
-            update Produtos set Estoque = Estoque + (new.Quantidade - old.Quantidade) where Referencia = new.Produto;
+            update Produtos set Estoque = Estoque + new.Quantidade - old.Quantidade where Referencia = new.Produto;
 END$$
